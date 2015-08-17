@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Header Menu - TYPE #1</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="logo">facebook</div>
+		<div class="header-menu-div">
+			<ul>
+				<li class="header-menus">
+					<label><a href="">Home</a></label>
+				</li>
+				<li class="header-menus">
+					<label>Notifications</label>
+					<div class="sub-menu">
+						<ul>
+							<li><a href="">Privacy Checkup</a></li>
+							<div class="devider"></div>
+							<li><a href="">Who an see my stuff?</a></li>
+							<div class="devider"></div>
+							<li><a href="">Who can conact me?</a></li>
+						</ul>
+					</div>
+				</li>
+				<li class="header-menus">
+					<label>Options</label>
+					<div class="sub-menu right-most-submenu">
+						<ul>
+							<li><a href="">Create Page</a></li>
+							<li><a href="">Manage Page</a></li>
+							<div class="devider"></div>
+							<li><a href="">Create Group</a></li>
+							<li><a href="">Manage Groups</a></li>
+							<div class="devider"></div>
+							<li><a href="">Create Ads</a></li>
+							<li><a href="">Advertising on Facebook</a></li>
+							<div class="devider"></div>
+							<li><a href="">Activity Log <span class="count">5</span></a></li>
+							<li><a href="">News Feed Preferences</a></li>
+							<li><a href="">Settings</a></li>
+							<li><a href="">Log Out</a></li>
+							<div class="devider"></div>
+							<li><a href="">Help</a></li>
+							<li><a href="">Support Index</a></li>
+							<li><a href="">Report a Problem</a></li>
+						</ul>
+					</div>
+				</li>
+			</ul>
+			<div class="clr"></div>
+		</div>
+		<div class="clr"></div>
+	</div>
+<style type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+		background-color: #1abc9c;
+		font-family: 'Varela Round', sans-serif;
+	}
+	.clr {
+		clear: both;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	li {
+		display: inline-block;
+		float: left;
+		position: relative;
+	}
+	a {
+		text-decoration: none;
+	}
+	.container {
+		text-align: center;
+		width: 1000px;
+		margin: 0 auto;
+		background-color: #34495e;
+		margin-top: 100px;
+	}
+	.logo {
+		color: #ecf0f1;
+		float: left;
+		font-size: 30px;
+		padding: 10px 50px;
+		width: 55%;
+		text-align: left;
+	}
+	.header-menu-div {
+		float: left;
+		color: #ecf0f1;
+		padding-right: 50px;
+		padding-top: 9px;
+	}
+	.header-menus {
+		margin-right: 5px;
+		margin-left: 5px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.header-menus label {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.header-menus label a {
+		color: #ecf0f1;
+	}
+	.header-menus:hover {
+		background-color: #2c3e50;
+	}
+	.active-header-menu {
+		background-color: #2c3e50;
+	}
+	.sub-menu {
+		display: none;
+		position: fixed;
+		margin-top: 18px;
+	}
+	.right-most-submenu {
+		margin-left: -169px;
+	}
+	.sub-menu ul {
+		background-color: #2c3e50;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	.sub-menu ul li {
+		float: none;
+		display: block;
+		padding-left: 30px;
+		padding-right: 30px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		text-align: left;
+	}
+	.sub-menu ul li a {
+		color: #ecf0f1;
+	}
+	.sub-menu ul li:hover {
+		background-color: #e74c3c;
+	}
+	.devider {
+		border: 1px solid #34495e;
+		margin: 5px;
+	}
+	.count {
+		background-color: #f29c93;
+		color: #e74c3c;
+		border-radius: 50%;
+		padding-right: 5px;
+		padding-left: 6px;
+		margin-left: 30px;
+	}
+</style>
+<script type="text/javascript">
+
+	$(document).click(function() {
+	  $('.display').hide().removeClass('display');
+	  $('.active-header-menu').removeClass('active-header-menu');
+	});
+
+	$(document).ready(function() {
+		$('body').on('click','.header-menus',function(e) {
+
+			e.stopPropagation();
+
+			if($(this).children('.display').length == 0) {
+
+				$('.display').hide().removeClass('display');
+				$('.active-header-menu').removeClass('active-header-menu');
+
+				$(this).children('.sub-menu').addClass('display').show();
+				$(this).addClass('active-header-menu');
+			}
+			else {
+				$('.display').hide().removeClass('display');
+				$(this).removeClass('active-header-menu');
+			}
+	  	})
+	})
+</script>
+</body>
+</html>
