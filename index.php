@@ -5,6 +5,7 @@
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
@@ -18,7 +19,7 @@
 					<label><a href="">Home</a></label>
 				</li>
 				<li class="header-menus">
-					<label>Notifications</label>
+					<label>Privacy<i class="fa fa-angle-down"></i></label>
 					<div class="sub-menu">
 						<ul>
 							<li><a href="">Privacy Checkup</a></li>
@@ -30,7 +31,7 @@
 					</div>
 				</li>
 				<li class="header-menus">
-					<label>Options</label>
+					<label>Options<i class="fa fa-angle-down"></i></label>
 					<div class="sub-menu right-most-submenu">
 						<ul>
 							<li><a href="">Create Page</a></li>
@@ -93,7 +94,7 @@
 		float: left;
 		font-size: 30px;
 		padding: 10px 50px;
-		width: 55%;
+		width: 54%;
 		text-align: left;
 	}
 	.header-menu-div {
@@ -118,6 +119,10 @@
 	.header-menus:hover {
 		background-color: #2c3e50;
 	}
+	.header-menus label i {
+		margin-left: 5px;
+		margin-right: 10px;
+	}
 	.active-header-menu {
 		background-color: #2c3e50;
 	}
@@ -127,7 +132,7 @@
 		margin-top: 18px;
 	}
 	.right-most-submenu {
-		margin-left: -169px;
+		margin-left: -144px;
 	}
 	.sub-menu ul {
 		background-color: #2c3e50;
@@ -165,8 +170,9 @@
 <script type="text/javascript">
 
 	$(document).click(function() {
-	  $('.display').hide().removeClass('display');
-	  $('.active-header-menu').removeClass('active-header-menu');
+	  	$('.display').hide().removeClass('display');
+	  	$('.active-header-menu').removeClass('active-header-menu');
+		$('.header-menus').children('label').children('i').removeClass('fa-angle-up').addClass('fa-angle-down');
 	});
 
 	$(document).ready(function() {
@@ -176,15 +182,20 @@
 
 			if($(this).children('.display').length == 0) {
 
+				// reset
 				$('.display').hide().removeClass('display');
 				$('.active-header-menu').removeClass('active-header-menu');
+				$('.header-menus').children('label').children('i').removeClass('fa-angle-up').addClass('fa-angle-down');
 
+				// do something
 				$(this).children('.sub-menu').addClass('display').show();
 				$(this).addClass('active-header-menu');
+				$(this).children('label').children('i').removeClass('fa-angle-down').addClass('fa-angle-up');
 			}
 			else {
 				$('.display').hide().removeClass('display');
 				$(this).removeClass('active-header-menu');
+				$(this).children('label').children('i').removeClass('fa-angle-up').addClass('fa-angle-down');
 			}
 	  	})
 	})
